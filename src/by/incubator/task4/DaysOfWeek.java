@@ -10,11 +10,8 @@ public enum DaysOfWeek {
     SATURDAY("SAT", true),
     SUNDAY("SUN", true);
 
-
     private String abbrev;
-
     private boolean isWeekend;
-
 
     DaysOfWeek(String abbrev, boolean isWeekend) {
         this.abbrev = abbrev;
