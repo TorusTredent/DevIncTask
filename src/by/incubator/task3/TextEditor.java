@@ -20,22 +20,18 @@ public class TextEditor {
 
     public static String reverseText(String text) {
         if (text == null) return null;
-
         char[] textToChar = text.toCharArray();
         char[] reverse = new char[textToChar.length];
-
         int j = 0;
         for (int i = textToChar.length - 1; i >= 0; i--) {
             reverse[j] = textToChar[i];
             j++;
         }
-
         return String.valueOf(reverse);
     }
 
     public static String deleteSpaces(String text) {
         if (text == null) return null;
-
         char[] textToChar = text.toCharArray();
         char[] textWithoutSpaces = new char[textToChar.length];
         int countSpaces = 0;
@@ -48,31 +44,26 @@ public class TextEditor {
                 j++;
             }
         }
-
         return String.valueOf(textWithoutSpaces).trim();
     }
 
     public static String getUppercaseLetters(String text) {
         StringBuilder stringBuilder = new StringBuilder();
         char[] chars = text.toCharArray();
-
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(chars[i])) {
                 stringBuilder.append(chars[i]);
             }
         }
-
         return new String(stringBuilder);
     }
 
     public static String getEvenLetters(String text) {
         StringBuilder stringBuilder = new StringBuilder();
         char[] chars = text.toCharArray();
-
         for (int i = 1; i < text.length(); i+=2) {
             stringBuilder.append(chars[i]);
         }
-
         return new String(stringBuilder).toUpperCase();
     }
 
@@ -83,5 +74,4 @@ public class TextEditor {
         }
         return arrayString;
     }
-
 }
