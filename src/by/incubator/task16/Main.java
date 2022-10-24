@@ -18,6 +18,7 @@ public class Main {
         completedTaskB();
     }
 
+
     private static void completedTaskB() {
         printMenWhoLiableForMilitary();
         printAverageAgeAmongMen();
