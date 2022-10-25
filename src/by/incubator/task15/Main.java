@@ -25,33 +25,45 @@ public class Main {
         Function<String, Integer> stringToIntConverter = Integer::parseInt;
         UnaryOperator<Integer> unaryOperator = number -> number * number;
 
-        Integer[] filteredArray = filterArray(numbers, numberFilter);
-        Integer[] filteredArrayWithPredicate = filterArray(numbers, numberPredicate::test);
-        Integer[] mappedArray = fill(numbers, squareFunction);
-
-        Writer.printArray(numbers);
-        Writer.println("___");
-        Writer.printArray(filteredArray);
-        Writer.println("___");
-        Writer.printArray(filteredArrayWithPredicate);
-        Writer.println("___");
-        Writer.printArray(mappedArray);
-        Writer.println("___");
-
-        Dog dog = new Dog("Olivka", 1, 777);
-        Cat cat = dogToCatConverter.convert(dog);
-        Writer.println(cat);
-
-        Writer.printResultOfPredicate(predicateParity, 1);
-        Writer.printResultOfPredicate(predicateParity, 2);
-        Writer.printResultOfPredicate(predicateParity, 3);
-
+        printFilteredArray(numbers, numberFilter);
+        printFilteredArrayWithPredicate(numbers, predicateParity);
+        printMappedArray(numbers, squareFunction);
+        printConvertDogToCat(dogToCatConverter);
+        printResultOfPredicate(predicateParity);
         greetings(consumer, "Olivka");
         Writer.printRandomName(names, supplier);
         printConvertedInt("10", stringToIntConverter);
         printSquareNumber(12, unaryOperator);
     }
 
+
+    private static void printResultOfPredicate(Predicate<Integer> predicateParity) {
+        Writer.printResultOfPredicate(predicateParity, 1);
+        Writer.printResultOfPredicate(predicateParity, 2);
+        Writer.printResultOfPredicate(predicateParity, 3);
+    }
+    private static void printConvertDogToCat(Converter<Dog, Cat> dogToCatConverter) {
+        Dog dog = new Dog("Olivka", 1, 777);
+        Cat cat = dogToCatConverter.convert(dog);
+        Writer.println(cat);
+    }
+    private static void printMappedArray(Integer[] numbers, Function<Integer, Integer> squareFunction) {
+        Integer[] mappedArray = fill(numbers, squareFunction);
+        Writer.printArray(mappedArray);
+        Writer.println("___");
+    }
+
+    private static void printFilteredArray(Integer[] numbers, Filter<Integer> numberFilter) {
+        Integer[] filteredArray = filterArray(numbers, numberFilter);
+        Writer.printArray(numbers);
+        Writer.println("___");
+    }
+
+    private static void printFilteredArrayWithPredicate(Integer[] numbers, Predicate<Integer> numberPredicate) {
+        Integer[] filteredArrayWithPredicate = filterArray(numbers, numberPredicate::test);
+        Writer.printArray(filteredArrayWithPredicate);
+        Writer.println("___");
+    }
 
     private static Integer[] initArray() {
         return new Integer[]{1,98,3,42,51,614,37,126,27};
