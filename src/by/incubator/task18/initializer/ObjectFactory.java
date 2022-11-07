@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class ObjectFactory<T> {
 
-    static <T> T create(Class<T> clazz) {
+    public static <T> T create(Class<T> clazz) {
         if (Validator.validateClass(clazz)) {
             try {
                 return (T) clazz.getConstructor().newInstance();
